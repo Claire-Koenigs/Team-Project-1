@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Add Contact";
+}
+
+<h2>Add Contact</h2>
+
+<form method="post">
+    <div>
+        <label>First name</label>
+        <input class="form-control"/>
+    </div>
+    <div>
+        <label>Last name</label>
+        <input class="form-control"/>
+    </div>
+    <div>
+        <label>Phone</label>
+        <input class="form-control"/>
+    </div>
+    <div>
+        <label>Email</label>
+        <input class="form-control"/>
+    </div>
+    <div>
+        <label>Category</label>
+        <select class="form-control">
+            <option>select a category</option>
+            <option>Family</option>
+            <option>Friend</option>
+            <option>Work</option>
+        </select>
+    </div>
+    <div>
+        <label>Organization</label>
+        <input class="form-control"/>
+    </div>
+    
+    <button type="button" class="btn btn-dark">Add</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Cancel</a>
+</form>
