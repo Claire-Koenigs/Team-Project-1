@@ -1,4 +1,4 @@
-@model AddModel
+@model Contact
 @{
     ViewData["Title"] = "Contact Details";
 }
@@ -7,16 +7,28 @@
 
 <div>
     <ul>
-        <li class="list-group-item"><span>Name: @ViewBag.</span></li>
-        <li class="list-group-item"><span>Phone:</span></li>
-        <li class="list-group-item"><span>Email:</span></li>
-        <li class="list-group-item"><span>Category:</span></li>
-        <li class="list-group-item"><span>Organization:</span></li>
-        <li class="list-group-item"><span>Date added:</span></li>
+        <li class="list-group-item">
+            <span>Name:</span> @Model.FirstName @Model.LastName
+        </li>
+        <li class="list-group-item">
+            <span>Phone:</span> @Model.Phone
+        </li>
+        <li class="list-group-item">
+            <span>Email:</span> @Model.Email
+        </li>
+        <li class="list-group-item">
+            <span>Category:</span> @Model.Category.Name
+        </li>
+        <li class="list-group-item">
+            <span>Organization:</span> @Model.Organization
+        </li>
+        <li class="list-group-item">
+            <span>Date added:</span> @Model.DateAdded.ToString("M/d/yyyy")
+        </li>
         
         <li class="list-group-item">
-            <a asp-action="Edit" class="btn btn-dark">Edit</a>
-            <a asp-action="Delete" class="btn btn-dark">Delete</a>
+            <a asp-action="Edit" asp-route-id="@Model.ContactId" class="btn btn-dark">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" class="btn btn-dark">Delete</a>
             <a asp-controller="Home" asp-action="Index" class="btn btn-dark">Home</a>
         </li>
     </ul>

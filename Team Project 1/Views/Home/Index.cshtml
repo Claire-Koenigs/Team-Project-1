@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Team_Project_1.Models.Contact>
+@{
     ViewData["Title"] = "Contact Manager";
 }
 
@@ -18,6 +19,31 @@
     </thead>
 
     <tbody>
-        
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Contact"
+                       asp-action="Details"
+                       asp-route-id="@contact.ContactId"
+                       asp-route-slug="@contact.Slug">
+                        @contact.FirstName
+                    </a>
+                </td>
+
+                <td>
+                    <a asp-controller="Contact"
+                       asp-action="Details"
+                       asp-route-id="@contact.ContactId"
+                       asp-route-slug="@contact.Slug">
+                        @contact.LastName
+                    </a>
+                </td>
+
+                <td>@contact.Phone</td>
+                <td>@contact.Email</td>
+                <td>@contact.Category.Name</td>
+            </tr>
+        }
     </tbody>
 </table>
